@@ -1,0 +1,36 @@
+.TH DHCP-STATS 1
+.SH NAME
+dhcp-stats \- monitoring of DHCP traffic
+.SH SYNOPSIS
+dhcp-stats [-r <filename>] [-i <interface-name>] <ip-prefix> [ <ip-prefix> [ ... ] ]
+.SH DESCRIPTION
+.B dhcp-stats
+is used for monitoring of the maximum number of hosts,
+allocated addresses and utilization of chosen ip prefixes 
+.SH OPTIONS
+.TP
+\-i <interface>
+capturing of live DHCP traffic from the specified network interface
+.TP
+\-r <filename>
+pcap file with captured DHCP traffic
+.TP
+<ip-prefix>
+ip prefix for which the statistics will be generated
+
+Note: either -r or -i option must be provided to specify the traffic source.
+
+.SH EXAMPLES
+.TP
+$ ./dhcp-stats -r dhcp.pcap 192.168.10.0/25
+.TP
+$ ./dhcp-stats -i eth0 10.0.0.0/8
+
+.SH EXIT STATUS
+.TP
+0   succesful execution
+.TP
+1   an error occured during execution
+
+.SH AUTHOR
+Tereza Lapčíková, xlapci03
